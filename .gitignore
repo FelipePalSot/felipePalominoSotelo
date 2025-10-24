@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+
+# Coverage reports
+coverage/
+
+
+# Cypress
+cypress/screenshots/
+cypress/videos/
+
+# Testing
+.nyc_output/

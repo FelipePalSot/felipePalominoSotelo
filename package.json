@@ -1,0 +1,49 @@
+{
+  "name": "ecommerce-project-react-with-cart",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "jest --coverage",
+    "cy:open": "cypress open --e2e",
+    "cy:run": "start-server-and-test dev http://localhost:5173 cy:run:only",
+    "cy:run:only": "cypress run --e2e --browser chrome"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.4"
+  },
+  "cypress": {
+    "configFile": "./cypress.config.js"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.28.3",
+    "@vitejs/plugin-react": "^5.0.4",
+    "artillery": "^2.0.23",
+    "babel-jest": "^30.2.0",
+    "cypress": "^14.5.4",
+    "jest": "^27.5.1",
+    "nodemon": "^3.1.10",
+    "start-server-and-test": "^2.1.2",
+    "supertest": "^6.3.4",
+    "vite": "^7.1.10"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.[jt]sx?$": "babel-jest"
+    },
+    "testMatch": [
+      "<rootDir>/tests/unit/validation.test.js"
+    ],
+    "collectCoverageFrom": [
+      "src/server/utils/validation.js"
+    ],
+    "verbose": true
+  }
+}

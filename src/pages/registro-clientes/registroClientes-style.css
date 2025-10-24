@@ -1,0 +1,153 @@
+
+html, body {
+  height: 100%;
+  background: #ffffff;
+  color: #51646c;
+  font-family: Roboto;
+  line-height: 1.5;
+}
+
+body {
+  min-height: 100dvh;
+  margin: 0;
+  -webkit-text-size-adjust: 100%;
+}
+
+.container{
+  margin: 1rem;
+  padding: 0 16px;
+}
+
+a { 
+  color: #51646c; 
+  text-decoration: none; 
+}
+
+.page-title {
+  font-size: 1.15rem;
+  margin: 1.25rem 0 1rem;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.btn {
+  gap: .5rem;
+  padding: .65rem .9rem;
+  border-radius: 14px;
+  border: 1px solid #a9e5dd;
+  background: #26c43c;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  width: fit-content;
+}
+
+input {
+  width: 100%;
+  padding: .7rem 0.20rem;
+  border: 1px solid #dbe7e5;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 0.9375rem;
+  color: #51646c;
+  outline: none;
+}
+
+.form-field label { 
+  display: block; 
+  font-weight: 600; 
+  margin-bottom: .35rem; 
+  color: #51646c; 
+  font-size: 0.8125rem; 
+}
+
+.auth__container { 
+  display: grid; 
+  place-items: center; 
+  min-height: 30rem;
+  padding: 1rem;
+}
+
+.auth__panel {
+  width: min(520px, 100%);
+  background: #fff; 
+  border: 1px solid #dbe7e5;
+  border-radius: 14px; 
+  padding: 1.25rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,.08);
+}
+
+.auth .page-title { 
+  text-align: center; 
+  margin-top: 0; 
+}
+.auth .form { 
+  display: grid; 
+  gap: .875rem; 
+}
+
+.auth__alt { 
+  text-align: center; 
+  color: #51646c;
+  font-size: 0.875rem;
+}
+
+.link { 
+  font-weight: 700; 
+}
+
+/* Media Queries */
+@media (min-width: 40rem) {
+  .container {
+    margin: 1.5rem 2rem;
+  }
+  
+  .page-title {
+    font-size: 1.25rem;
+  }
+  
+  .btn {
+    padding: .7rem 1rem;
+    font-size: 0.9375rem;
+  }
+  
+  .auth__panel {
+    padding: 1.5rem;
+  }
+  
+  .form-field label {
+    font-size: 0.875rem;
+  }
+  
+  .auth .form {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 48rem) {
+  .container {
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 24px;
+  }
+  
+  .page-title {
+    font-size: 1.35rem;
+    margin: 1.5rem 0 1rem;
+  }
+  
+  .auth__container {
+    min-height: 37rem;
+  }
+}
+
+button, .btn { 
+  will-change: transform; 
+
+}
