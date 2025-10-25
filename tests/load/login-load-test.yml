@@ -1,0 +1,56 @@
+config:
+  target: "http://localhost:5173"
+  phases:
+    - duration: 60
+      arrivalRate: 10
+      name: "Warm up - Calentamiento"
+    - duration: 120
+      arrivalRate: 50
+      name: "Load test - Prueba de carga"
+  defaults:
+    headers:
+      Content-Type: "application/json"
+
+scenarios:
+  - name: "Login Scenario - Inicio de sesión"
+    flow:
+      - post:
+          url: "/login"
+          json:
+            nombre: "Juan Pérez"
+            email: "test@example.com"
+            password: "password123"
+          capture:
+            - json: "$"
+              as: "loginResponse"
+          expect:
+            - statusCode: 200
+  
+  - name: "Login Failed Scenario - Login fallido"
+    weight: 2
+    flow:
+      - post:
+          url: "/login"
+          json:
+            nombre: "Usuario Test"
+            email: "wrong@example.com"
+            password: "wrongpass"
+          capture:
+            - json: "$"
+              as: "errorResponse"
+          expect:
+            - statusCode: 401
+
+  - name: "Registro Scenario - Registro de usuario"
+    flow:
+      - post:
+          url: "/register"
+          json:
+            nombre: "María García"
+            email: "maria{{ $randomNumber() }}@example.com"
+            password: "SecurePass123"
+          capture:
+            - json: "$"
+              as: "registerResponse"
+          expect:
+            - statusCode: 201

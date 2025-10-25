@@ -38,3 +38,19 @@ export function validateLength(
 
   return { valid: true, value: s, length };
 }
+
+export function validateEmail(email, { fieldName = 'Correo electrónico' } = {}) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+  if (!email || typeof email !== 'string') {
+    return { valid: false, error: `${fieldName} es obligatorio.` };
+  }
+  
+  const trimmedEmail = email.trim();
+  
+  if (!emailRegex.test(trimmedEmail)) {
+    return { valid: false, error: `El formato de ${fieldName} no es válido.` };
+  }
+  
+  return { valid: true, value: trimmedEmail };
+}
