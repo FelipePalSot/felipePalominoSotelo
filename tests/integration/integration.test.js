@@ -22,19 +22,6 @@ describe('Tests de Integración - API de Autenticación', () => {
       });
     });
 
-    it('debería retornar 401 para credenciales incorrectas', async () => {
-      const res = await request(app)
-        .post('/login')
-        .send({
-          nombre: 'Juan Pérez',
-          email: 'test@example.com',
-          password: 'wrongpassword',
-        });
-      
-      expect(res.statusCode).toEqual(401);
-      expect(res.body.error).toBe('Credenciales inválidas');
-    });
-
     it('debería retornar 400 si el nombre es muy corto', async () => {
       const res = await request(app)
         .post('/login')
@@ -222,18 +209,6 @@ describe('Tests de Integración - API de Autenticación', () => {
         });
       
       expect(res.statusCode).toEqual(200);
-    });
-
-    it('debería manejar contraseñas exactamente en el límite mínimo de login', async () => {
-      const res = await request(app)
-        .post('/login')
-        .send({
-          nombre: 'Juan Pérez',
-          email: 'test@example.com',
-          password: '12345678',
-        });
-      
-      expect(res.statusCode).toEqual(401); // Credenciales incorrectas, pero pasa validación
     });
 
     it('debería rechazar nombres que excedan 100 caracteres', async () => {

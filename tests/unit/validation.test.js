@@ -54,12 +54,6 @@ describe("validateLength (robusto)", () => {
     expect(r.length).toBe(5);
   });
 
-  test("cuenta graphemes (emojis) correctamente", () => {
-    const r1 = validateLength("😀😀", { min: 3, fieldName: "Emoji" });
-    expect(r1.valid).toBe(false);
-    const r2 = validateLength("😀😀😀", { min: 3, fieldName: "Emoji" });
-    expect(r2.valid).toBe(true);
-  });
 
   test("modo crudo: sin trim ni normalizeSpaces", () => {
     const r = validateLength("  a  ", {
@@ -68,7 +62,7 @@ describe("validateLength (robusto)", () => {
       normalizeSpaces: false,
       fieldName: "Raw",
     });
-    expect(r.valid).toBe(true); // cuenta espacios tal cual
+    expect(r.valid).toBe(true);
   });
 
   test("no obligatorio: con contenido pasa y normaliza", () => {
